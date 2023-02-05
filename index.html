@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+html{
+height: 100%;
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+}
+body{
+margin: 0px;
+height: 100%;
+}
+.main_body{
+box-sizing: border-box;
+width: 1536px;
+display: flex;
+justify-content: space-between;
+padding: 16px;
+}
+.column{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.cv_shadow{
+height: 640px;
+width: 640px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.main_cv{
+image-rendering: pixelated;
+position: absolute;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.color_picker_cv{
+visibility: hidden;
+position: absolute;
+top: 0;
+z-index: 2;
+border: 2px solid black;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.color_wheel{
+position: absolute;
+top: 9px;
+right: 8px;
+width: 24px;
+height: 24px;
+border: 1px solid black;
+border-radius: 50%;
+background-image: url('assets/color_wheel.png');
+background-size: cover;
+}
+.pallete{
+padding: 12px;
+background-color: darkgrey;
+border: 2px solid black;
+border-radius: 8px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.options_container{
+padding: 12px;
+background-color: darkgrey;
+border: 2px solid black;
+border-radius: 8px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.options{
+margin: auto;
+background-color: lightgrey;
+width: 272px;
+border: 2px solid black;
+border-radius: 4px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.options_row{
+padding-top: 5px;
+margin-left: 8px;
+margin-right: 8px;
+border-bottom: 1px dashed black;
+position: relative;
+}
+.selected_color{
+margin: auto;
+background-color: lightgrey;
+width: 418px;
+border: 2px solid black;
+border-radius: 4px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+position: relative;
+}
+.color_icon{
+width: 32px;
+height: 32px;
+}
+.color_list{
+margin: auto;
+margin-top: 10px;
+background-color: lightgrey;
+padding-top: 2px;
+padding-bottom: 2px;
+width: 418px;
+height: 555px;
+border: 2px solid black;
+border-radius: 4px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.pallete_row{
+padding-bottom: 5px;
+padding-top: 5px;
+margin-left: 8px;
+margin-right: 8px;
+border-bottom: 1px dashed black;
+position: relative;
+}
+.input_row{
+position: absolute;
+top: 11px;
+left: 40px;
+}
+.color_input{
+width: 32px;
+text-align: right;
+}
+.options_input{
+width: 48px;
+text-align: right;
+float: right;
+}
+.slider{
+width: 100%;
+}
+.tools{
+margin: auto;
+background-color: lightgrey;
+width: 272px;
+border: 2px solid black;
+border-radius: 4px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+overflow: hidden;
+}
+.tool_row{
+display: flex;
+border-bottom: 1px solid black;
+}
+.tool_icon{
+width: 68px;
+height: 36px;
+background-size: 38%;
+background-repeat: no-repeat;
+background-position: center; 
+background-color: lightgrey;
+border-right: 1px solid black;
+}
+.tool_icon_selected{
+width: 68px;
+height: 36px;
+background-size: 38%;
+background-repeat: no-repeat;
+background-position: center; 
+background-color: tan;
+border-right: 1px solid black;
+}
+.tool_icon:hover{
+background-color: wheat;
+box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.2), 0 0px 4px 0 rgba(0, 0, 0, 0.19);
+z-index: 1;
+}
+.tooltip{
+background-color: floralwhite;
+z-index: 2;
+border: 1px solid black;
+position: absolute;
+visibility: hidden;
+pointer-events: none;
+padding-right: 2px;
+padding-left: 2px;
+top: 4px;
+left: 10px;
+}
+</style>
+</head>
+<body onload='init()' style='background-color:Grey;'>
+<script type="text/javascript" src="ui_elements.js"></script>
+<script type="text/javascript" src="color_pallete.js"></script>
+<script type="text/javascript" src="drawing_tools.js"></script>
+<script type="text/javascript" src="options.js"></script>
+<script type="text/javascript" src="save_data.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
